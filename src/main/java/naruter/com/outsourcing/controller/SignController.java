@@ -12,8 +12,8 @@ import naruter.com.outsourcing.service.SignService;
 import naruter.com.outsourcing.vo.MemberInfo;
 
 @Controller
-public class SiteController {
-
+public class SignController {
+//login,logout,join,find id-pwd
 	@Autowired
 	private SignService ss;
 	
