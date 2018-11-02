@@ -1,4 +1,5 @@
 package naruter.com.outsourcing.vo;
+
 import org.apache.ibatis.type.Alias;
 
 @Alias("mi")

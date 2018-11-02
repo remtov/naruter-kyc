@@ -1,33 +1,32 @@
 package naruter.com.outsourcing.vo;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.stereotype.Component;
 
 @Alias("ci")
+@Component
 public class ClientInfo {
+
 	private Integer membernum;
 	private String companyname;
 	private String companyregistrationnumber;
 	private String companyaddress;
-	private String compantype;
+	private String companytype;
 	private String businessvariety;
-	private String companyslte;
+	private String companysite;
 	
+	public ClientInfo() {}
 	public ClientInfo(Integer membernum, String companyname, String companyregistrationnumber, String companyaddress,
-			String compantype, String businessvariety, String companyslte) {
+			String companytype, String businessvariety, String companysite) {
 		super();
 		this.membernum = membernum;
 		this.companyname = companyname;
 		this.companyregistrationnumber = companyregistrationnumber;
 		this.companyaddress = companyaddress;
-		this.compantype = compantype;
+		this.companytype = companytype;
 		this.businessvariety = businessvariety;
-		this.companyslte = companyslte;
+		this.companysite = companysite;
 	}
-	
-	public ClientInfo() {
-		
-	}
-	
 	public Integer getMembernum() {
 		return membernum;
 	}
@@ -52,11 +51,11 @@ public class ClientInfo {
 	public void setCompanyaddress(String companyaddress) {
 		this.companyaddress = companyaddress;
 	}
-	public String getCompantype() {
-		return compantype;
+	public String getCompanytype() {
+		return companytype;
 	}
-	public void setCompantype(String compantype) {
-		this.compantype = compantype;
+	public void setCompanytype(String companytype) {
+		this.companytype = companytype;
 	}
 	public String getBusinessvariety() {
 		return businessvariety;
@@ -64,17 +63,18 @@ public class ClientInfo {
 	public void setBusinessvariety(String businessvariety) {
 		this.businessvariety = businessvariety;
 	}
-	public String getCompanyslte() {
-		return companyslte;
+	public String getCompanysite() {
+		return companysite;
 	}
-	public void setCompanyslte(String companyslte) {
-		this.companyslte = companyslte;
+	public void setCompanysite(String companysite) {
+		this.companysite = companysite;
 	}
 	@Override
 	public String toString() {
 		return "ClientInfo [membernum=" + membernum + ", companyname=" + companyname + ", companyregistrationnumber="
-				+ companyregistrationnumber + ", companyaddress=" + companyaddress + ", compantype=" + compantype
-				+ ", businessvariety=" + businessvariety + ", companyslte=" + companyslte + "]";
+				+ companyregistrationnumber + ", companyaddress=" + companyaddress + ", companytype=" + companytype
+				+ ", businessvariety=" + businessvariety + ", companysite=" + companysite + "]";
 	}
+	
 
 }

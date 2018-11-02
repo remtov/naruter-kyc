@@ -1,4 +1,5 @@
 package naruter.com.outsourcing.controller;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import naruter.com.outsourcing.service.SignService;
+import lombok.extern.slf4j.Slf4j;
+import naruter.com.outsourcing.service.MeminfoService;
 import naruter.com.outsourcing.vo.MemberInfo;
 
+@Slf4j
 @Controller
-public class SignController {
-//login,logout,join,find id-pwd
+public class MeminfoController {
+	//login,logout,join,find id-pwd
 	@Autowired
-	private SignService ss;
+	private MeminfoService ss;
 	
 	@ResponseBody
-	@RequestMapping(value="/sign", method=RequestMethod.POST)
+	@RequestMapping(value="/sign", method=RequestMethod.POST) //LOGIN
 	public Integer selectSignIn(@RequestBody MemberInfo memInfo,HttpSession session) {
 		//login
 		int suc = ss.loginGet(memInfo);
@@ -33,7 +36,7 @@ public class SignController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/sign", method=RequestMethod.GET)
+	@RequestMapping(value="/sign", method=RequestMethod.GET)//LOGOUT
 	public Integer selectSignIn(HttpSession session) {
 		//logout
 		int cnt =-1;
@@ -43,4 +46,13 @@ public class SignController {
 		}
 		return cnt;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/signup", method=RequestMethod.POST) //JOIN
+	public Integer selectSignUp(@RequestBody MemberInfo memInfo) {
+		return ss.join(memInfo);
+	}
+	
+
+	
 }
