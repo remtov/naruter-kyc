@@ -11,12 +11,16 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class URIController {
 
-	@RequestMapping(value="/**")
-	   public String goPage(HttpServletRequest hreq) {
-	      String rootPath = hreq.getContextPath();
-	      String path = hreq.getRequestURI();
-	      log.info(path);
-	      log.info(rootPath);
-	      return path.replace(rootPath + "/","");
-	   }
+	@RequestMapping(value= {"/site/**","/pms/**"})
+	public String goPage(HttpServletRequest hreq) {
+		// http.authorizeRequests().antMatchers("/css/**", "/js/**",
+		// "/images/**").permitAll();
+		String url = hreq.getRequestURL().toString().replaceAll("http://localhost/", "").toString();
+		String rootPath = hreq.getContextPath();
+		String path = hreq.getRequestURI();
+		log.info(url);
+		log.info(path);
+		log.info(rootPath);
+		return url;
+	}
 }
