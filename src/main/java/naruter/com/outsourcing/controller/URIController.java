@@ -11,12 +11,12 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class URIController {
 
-	@RequestMapping(value="/uri/**")
+	@RequestMapping(value="/**")
 	   public String goPage(HttpServletRequest hreq) {
 	      String rootPath = hreq.getContextPath();
 	      String path = hreq.getRequestURI();
 	      log.info(path);
 	      log.info(rootPath);
-	      return path.replace(rootPath + "/uri/","");
+	      return path.replace(rootPath + "/","");
 	   }
 }
