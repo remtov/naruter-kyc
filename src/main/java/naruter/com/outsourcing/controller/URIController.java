@@ -13,8 +13,6 @@ public class URIController {
 
 	@RequestMapping(value= {"/site/**","/pms/**"})
 	public String goPage(HttpServletRequest hreq) {
-		// http.authorizeRequests().antMatchers("/css/**", "/js/**",
-		// "/images/**").permitAll();
 		String url = hreq.getRequestURL().toString().replaceAll("http://localhost/", "").toString();
 		String rootPath = hreq.getContextPath();
 		String path = hreq.getRequestURI();
