@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import naruter.com.outsourcing.dao.ProjectDAO;
+import naruter.com.outsourcing.service.ProjectService;
 import naruter.com.outsourcing.vo.Project;
 
 @Service
-public class ProjectServiceImpl implements ProjectDAO {
+public class ProjectServiceImpl implements ProjectService {
 	@Autowired
 	private ProjectDAO pdao;
 
