@@ -3,6 +3,7 @@ package naruter.com.outsourcing.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
@@ -20,5 +21,10 @@ public class URIController {
 		log.info(path);
 		log.info(rootPath);
 		return url;
+	}
+	
+	@RequestMapping(value="/uri/{folderName}/{fileName}")
+	public String goPage(@PathVariable String folderName, @PathVariable String fileName) {
+		return folderName + "/" + fileName;
 	}
 }
