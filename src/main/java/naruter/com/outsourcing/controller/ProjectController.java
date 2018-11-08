@@ -16,7 +16,6 @@ import lombok.extern.slf4j.Slf4j;
 import naruter.com.outsourcing.service.ProjectService;
 import naruter.com.outsourcing.vo.Project;
 
-@Slf4j
 @Controller
 public class ProjectController {
 	@Autowired
