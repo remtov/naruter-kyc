@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import naruter.com.outsourcing.dao.ProjectDAO;
 import naruter.com.outsourcing.service.ProjectService;
@@ -20,8 +21,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public Project selectProject(Project pr) {
-		return pdao.selectProject(pr);
+	public Project selectProject(int pjnum) {
+		return pdao.selectProject(pjnum);
 	}
 
 	@Override
@@ -35,8 +36,8 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public int deleteProject(Project pr) {
-		return pdao.deleteProject(pr);
+	public int deleteProject(int pjnum) {
+		return pdao.deleteProject(pjnum);
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import naruter.com.outsourcing.dao.ProjectDAO;
 import naruter.com.outsourcing.vo.Project;
 
@@ -16,12 +15,12 @@ public class ProjectDAOImpl implements ProjectDAO {
 
 	@Override
 	public List<Project> selectProjectList(Project pr) {
-		return ss.selectList("SQL.PROJECT.selectList",pr);
+		return ss.selectList("SQL.PROJECT.selectProjectList",pr);
 	}
 
 	@Override
-	public Project selectProject(Project pr) {
-		return ss.selectOne("SQL.PROJECT.selectProject",pr);
+	public Project selectProject(int pjnum) {
+		return ss.selectOne("SQL.PROJECT.selectProject",pjnum);
 	}
 
 	@Override
@@ -35,8 +34,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 
 	@Override
-	public int deleteProject(Project pr) {
-		return ss.delete("SQL.PROJECT.deleteProject",pr);
+	public int deleteProject(int pjnum) {
+		return ss.delete("SQL.PROJECT.deleteProject",pjnum);
 	}
 
 }
