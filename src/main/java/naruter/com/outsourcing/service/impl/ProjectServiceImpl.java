@@ -19,7 +19,9 @@ public class ProjectServiceImpl implements ProjectService {
 	private FileListService fileService;
 
 	@Override
-	public List<Project> selectProjectList(Project pr) {
+	public List<Project> selectProjectList(Project pr) { //잘 모르겠음(알듯말듯)
+		List<FileList> flList = pr.getFilelist();
+		fileService.selectFileList((FileList) flList);
 		return pdao.selectProjectList(pr);
 	}
 
