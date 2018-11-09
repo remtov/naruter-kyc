@@ -7,13 +7,11 @@
 <mapper namespace="SQL.PROJECT">
 
 	<select id="selectProjectList" resultType="pr" parameterType="pr">
-		select p.*, f.fname from projec p 
-		left outer join filelist f on p.pjnum=f.pnum
+		select * from projec
 	</select>
 	<select id="selectProject" resultType="pr" parameterType="pr">
-		select p.*, f.fname from projec p 
-		left outer join filelist f on p.pjnum=f.pnum
-		where p.pjnum=#{pjnum}
+		select * from projec
+		where pjnum = #{pjnum}
 	</select>
 	
 	<update id="updateProject" parameterType="pr">
