@@ -29,7 +29,7 @@
 			<if test="pstayarea!=null">pstayarea = #{pstayarea},</if>
 			<if test="uploaddate!=null">uploaddate = #{uploaddate},</if>
 		</set>
-		where pjnum=#{pjnum}
+		where pjnum = #{pjnum}
 	</update>
 	
 	<insert id="insertProject" parameterType="pr">

@@ -40,8 +40,8 @@ public class ProjectController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/project/{pjnum}", method=RequestMethod.PUT) //수정x
-	public int updateProject(@ModelAttribute Project pr,@PathVariable int pjnum) {
+	@RequestMapping(value="/project/{pjnum}", method=RequestMethod.PUT) //수정o
+	public int updateProject(@RequestBody Project pr,@PathVariable int pjnum) {
 		pr.setPjnum(pjnum);
 		return pService.updateProject(pr);
 	}
