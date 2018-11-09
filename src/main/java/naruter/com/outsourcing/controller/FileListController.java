@@ -32,19 +32,19 @@ public class FileListController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/project", method=RequestMethod.POST) //입력x
+	@RequestMapping(value="/filelist", method=RequestMethod.POST) //입력x
 	public int insertFileList(@RequestBody List<FileList> flList) {
 		return flService.insertFileList(flList);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/project", method=RequestMethod.PUT) //수정x
+	@RequestMapping(value="/filelist", method=RequestMethod.PUT) //수정x
 	public int updateFileList(@RequestBody List<FileList> flList) {
 		return flService.updateFileList(flList);
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/project", method=RequestMethod.DELETE) //삭제x
+	@RequestMapping(value="/filelist", method=RequestMethod.DELETE) //삭제x
 	public int deleteFileList(@RequestBody List<FileList> flList) {
 		return flService.deleteFileList(flList);
 	}
