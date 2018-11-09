@@ -6,8 +6,8 @@ import naruter.com.outsourcing.vo.FileList;
 
 public interface FileListService {
 	public List<FileList> selectFileList(FileList fl);
-	public FileList selectFile(FileList fl);
-	public int updateFile(List<FileList> fl);
-	public int insertFile(List<FileList> fl);
-	public int deleteFile(List<FileList> fl);
+	public FileList selectFile(int pnum);
+	public int updateFileList(List<FileList> fl);
+	public int insertFileList(List<FileList> fl);
+	public int deleteFileList(List<FileList> fl);
 }

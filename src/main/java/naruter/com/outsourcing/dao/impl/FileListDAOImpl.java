@@ -15,27 +15,27 @@ public class FileListDAOImpl implements FileListDAO {
 	private SqlSession ss;
 
 	@Override
-	public List<FileList> selectFileList(FileList fl) {
+	public List<FileList> selectFileList(FileList fl) { //리스트조회o
 		return ss.selectList("SQL.FILELIST.selectFileList",fl);
 	}
 
 	@Override
-	public FileList selectFile(FileList fl) {
-		return ss.selectOne("SQL.FILELIST.selectFile",fl);
+	public FileList selectFile(int pnum) { //조회o
+		return ss.selectOne("SQL.FILELIST.selectFile",pnum);
 	}
 
 	@Override
-	public int updateFile(List<FileList> fl) {
+	public int updateFileList(List<FileList> fl) {
 		return ss.update("SQL.FILELIST.updateFileList",fl);
 	}
 
 	@Override
-	public int insertFile(List<FileList> fl) {
+	public int insertFileList(List<FileList> fl) {
 		return ss.insert("SQL.FILELIST.insertFileList",fl);
 	}
 
 	@Override
-	public int deleteFile(List<FileList> fl) {
+	public int deleteFileList(List<FileList> fl) { //리스트로 삭제o
 		return ss.delete("SQL.FILELIST.deleteFileList",fl);
 	}
 

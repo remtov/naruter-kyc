@@ -20,23 +20,23 @@ public class FileListServiceImpl implements FileListService {
 	}
 
 	@Override
-	public FileList selectFile(FileList fl) {
-		return fdao.selectFile(fl);
+	public FileList selectFile(int pnum) {
+		return fdao.selectFile(pnum);
 	}
 
 	@Override
-	public int updateFile(List<FileList> fl) {
-		return fdao.updateFile(fl);
+	public int updateFileList(List<FileList> fl) {
+		return fdao.updateFileList(fl);
 	}
 
 	@Override
-	public int insertFile(List<FileList> fl) {
-		return fdao.insertFile(fl);
+	public int insertFileList(List<FileList> fl) {
+		return fdao.insertFileList(fl);
 	}
 
 	@Override
-	public int deleteFile(List<FileList> fl) {
-		return fdao.deleteFile(fl);
+	public int deleteFileList(List<FileList> fl) {
+		return fdao.deleteFileList(fl);
 	}
 
 }

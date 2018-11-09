@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import lombok.extern.slf4j.Slf4j;
 import naruter.com.outsourcing.service.ProjectService;
 import naruter.com.outsourcing.vo.Project;
 
@@ -40,8 +39,8 @@ public class ProjectController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/project/{pjnum}", method=RequestMethod.PUT) //수정x
-	public int updateProject(@ModelAttribute Project pr,@PathVariable int pjnum) {
+	@RequestMapping(value="/project/{pjnum}", method=RequestMethod.PUT) //수정o
+	public int updateProject(@RequestBody Project pr,@PathVariable int pjnum) {
 		pr.setPjnum(pjnum);
 		return pService.updateProject(pr);
 	}
