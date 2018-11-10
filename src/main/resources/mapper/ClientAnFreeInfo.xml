@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="SQL.CLIENTANFREE">
+	<select id="getType" parameterType="mi" resultType="string">
+		select
+		membertype from memberinfo where membernum = #{membernum}
+	</select>
+
+	<select id="chSkill" parameterType="int" resultType="int">
+		select
+		count(*) from SkillType where skillNum = #{skillNum}
+	</select>
+
+	<select id="selClient" parameterType="int" resultType="ci">
+		select * from client where membernum=#{membernum}
+	</select>
+	<select id="selFree" parameterType="int" resultType="fi">
+		select * from Freelancer where membernum=#{membernum}
+	</select>
+	<select id="selEdu" resultType="afi" parameterType="afi">
+		select * from additionalfree where membernum=#{membernum}
+	</select>
+
+
+	<insert id="inClient" parameterType="ci">
+		insert into Client(membernum, companyname, companynumber,
+		companyaddress, companytype
+		<if test="companysite!=null">, companysite</if>
+		)
+		values(#{membernum},#{companyname},#{companynumber},#{companyaddress},#{companytype}
+		<if test="companysite!=null">,#{companysite}</if>
+		)
+	</insert>
+	<insert id="inFree" parameterType="fi">
+		insert into Freelancer(MemberNum,SkillNum
+		<if test="abilitytag!=null">, abilitytag</if>
+		)values(#{membernum},#{skillnum}
+		<if test="abilitytag!=null">, #{abilitytag}</if>
+		)
+	</insert>
+	<insert id="inEdu" parameterType="afi">
+		insert into
+		additionalfree(additionalnum,membernum,additionaltype,additionaltitle,additionalstdate,additionalenddate
+		)
+		values(SEQ_addtionalNum.nextval,#{membernum},#{additionaltype},#{additionaltitle},#{additionalstdate},#{additionalenddate}
+		)
+	</insert>
+
+	<update id="upClient" parameterType="ci">
+		update Client
+		<set>
+			<if test="companyname!=null">companyname = #{companyname}</if>
+			<if test="companynumber!=null">, companynumber =#{companynumber}</if><!-- 사업자 등록 번호 -->
+			<if test="companyaddress!=null">, companyaddress = #{companyaddress}</if>
+			<if test="companytype!=null">, companytype = #{companytype}</if>
+		</set>
+		where membernum = #{membernum}
+	</update>
+	<update id="upFree" parameterType="fi">
+		update Freelancer
+		<set>
+			<if test="skillnum!=null">skillnum = #{skillnum}</if>
+			<if test="abilitytag!=null">, abilitytag =#{abilitytag}</if><!-- 사업자 등록 번호 -->
+		</set>
+		where membernum = #{membernum}
+	</update>
+	<update id="upEdu" parameterType="afi">
+		update
+		additionalfree
+		<set>
+			<if test="additionaltype!=null">additionaltype=#{additionaltype}</if>
+			<if test="additionaltitle!=null">,additionaltitle=#{additionaltitle}</if>
+			<if test="additionalstdate!=null">,additionalstdate=#{additionalstdate}</if>
+			<if test="additionalenddate!=null">,additionalenddate=#{additionalenddate}</if>
+		</set>
+		where membernum=#{membernum} and additionalnum=#{additionalnum}
+	</update>
+
+	<delete id="delEdu" parameterType="afi">
+		delete from additionalfree where membernum=#{membernum} and
+		additionalnum=#{additionalnum}
+	</delete>
+</mapper>

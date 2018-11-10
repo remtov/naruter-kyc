@@ -6,14 +6,13 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
 @Alias("fi")
-@Component
 public class FreelancerInfo {
 	private Integer membernum;
 	private Integer skillnum;
 	private String abilitytag;
-	private List<EduAnCarAnLiInfo> ecl;
+	private List<AdditionalFreeInfo> ecl;
 	public FreelancerInfo() {}
-	public FreelancerInfo(Integer membernum, Integer skillnum, String abilitytag, List<EduAnCarAnLiInfo> ecl) {
+	public FreelancerInfo(Integer membernum, Integer skillnum, String abilitytag, List<AdditionalFreeInfo> ecl) {
 		super();
 		this.membernum = membernum;
 		this.skillnum = skillnum;
@@ -38,10 +37,10 @@ public class FreelancerInfo {
 	public void setAbilitytag(String abilitytag) {
 		this.abilitytag = abilitytag;
 	}
-	public List<EduAnCarAnLiInfo> getEcl() {
+	public List<AdditionalFreeInfo> getEcl() {
 		return ecl;
 	}
-	public void setEcl(List<EduAnCarAnLiInfo> ecl) {
+	public void setEcl(List<AdditionalFreeInfo> ecl) {
 		this.ecl = ecl;
 	}
 	@Override

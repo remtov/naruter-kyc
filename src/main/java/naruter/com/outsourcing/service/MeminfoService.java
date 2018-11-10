@@ -1,5 +1,6 @@
 package naruter.com.outsourcing.service;
 
+
 import naruter.com.outsourcing.vo.MemberInfo;
 
 public interface MeminfoService {

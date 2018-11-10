@@ -4,27 +4,24 @@ import org.apache.ibatis.type.Alias;
 import org.springframework.stereotype.Component;
 
 @Alias("ci")
-@Component
 public class ClientInfo {
 
 	private Integer membernum;
-	private String companyname;
-	private String companyregistrationnumber;
-	private String companyaddress;
-	private String companytype;
-	private String businessvariety;
-	private String companysite;
+	private String companyname; /*회사이름*/
+	private String companynumber; /*사업자번호*/
+	private String companyaddress; /*회사 주소*/
+	private String companytype /*기업형태 -> 공공기업, 중소기업 등등*/;
+	private String companysite /*회사 홈페이지*/;
 	
 	public ClientInfo() {}
-	public ClientInfo(Integer membernum, String companyname, String companyregistrationnumber, String companyaddress,
-			String companytype, String businessvariety, String companysite) {
+	public ClientInfo(Integer membernum, String companyname, String companynumber, String companyaddress,
+			String companytype, String companysite) {
 		super();
 		this.membernum = membernum;
 		this.companyname = companyname;
-		this.companyregistrationnumber = companyregistrationnumber;
+		this.companynumber = companynumber;
 		this.companyaddress = companyaddress;
 		this.companytype = companytype;
-		this.businessvariety = businessvariety;
 		this.companysite = companysite;
 	}
 	public Integer getMembernum() {
@@ -39,11 +36,11 @@ public class ClientInfo {
 	public void setCompanyname(String companyname) {
 		this.companyname = companyname;
 	}
-	public String getCompanyregistrationnumber() {
-		return companyregistrationnumber;
+	public String getCompanynumber() {
+		return companynumber;
 	}
-	public void setCompanyregistrationnumber(String companyregistrationnumber) {
-		this.companyregistrationnumber = companyregistrationnumber;
+	public void setCompanynumber(String companynumber) {
+		this.companynumber = companynumber;
 	}
 	public String getCompanyaddress() {
 		return companyaddress;
@@ -57,12 +54,6 @@ public class ClientInfo {
 	public void setCompanytype(String companytype) {
 		this.companytype = companytype;
 	}
-	public String getBusinessvariety() {
-		return businessvariety;
-	}
-	public void setBusinessvariety(String businessvariety) {
-		this.businessvariety = businessvariety;
-	}
 	public String getCompanysite() {
 		return companysite;
 	}
@@ -71,10 +62,10 @@ public class ClientInfo {
 	}
 	@Override
 	public String toString() {
-		return "ClientInfo [membernum=" + membernum + ", companyname=" + companyname + ", companyregistrationnumber="
-				+ companyregistrationnumber + ", companyaddress=" + companyaddress + ", companytype=" + companytype
-				+ ", businessvariety=" + businessvariety + ", companysite=" + companysite + "]";
+		return "ClientInfo [membernum=" + membernum + ", companyname=" + companyname + ", companynumber="
+				+ companynumber + ", companyaddress=" + companyaddress + ", companytype=" + companytype
+				+ ", companysite=" + companysite + "]";
 	}
 	
-
+	
 }

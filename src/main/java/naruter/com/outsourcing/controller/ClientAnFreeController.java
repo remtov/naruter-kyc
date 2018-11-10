@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import lombok.extern.slf4j.Slf4j;
 import naruter.com.outsourcing.service.ClientAnFreeService;
+import naruter.com.outsourcing.vo.AdditionalFreeInfo;
 
+@Slf4j
 @Controller
 public class ClientAnFreeController {
 
@@ -21,13 +24,13 @@ public class ClientAnFreeController {
 	
 	@ResponseBody
 	@RequestMapping(value="/cfregister", method=RequestMethod.POST) //등록
-	public Integer cfInsert(@RequestBody Map<String, String> m) throws IllegalAccessException, InvocationTargetException {
+	public Integer cfInsert(@RequestBody Map<String, Object> m) throws IllegalAccessException, InvocationTargetException {
 		return cfs.cfInsert(m);
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/cfregister", method=RequestMethod.PUT) //수정
-	public Integer cfUpdate(@RequestBody Map<String, String> m) throws IllegalAccessException, InvocationTargetException {
+	public Integer cfUpdate(@RequestBody Map<String, Object> m) throws IllegalAccessException, InvocationTargetException {
 		return cfs.cfUpdate(m);
 	}
 	
@@ -35,5 +38,11 @@ public class ClientAnFreeController {
 	@RequestMapping(value="/cfregister/{memberNum}", method=RequestMethod.GET) //조회
 	public Object cfGet(@PathVariable Integer memberNum) throws IllegalAccessException, InvocationTargetException {
 		return cfs.cfGet(memberNum);
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/cfregister", method=RequestMethod.DELETE) //조회
+	public Integer additionalDel(@RequestBody AdditionalFreeInfo addinfo) throws IllegalAccessException, InvocationTargetException {
+		return cfs.additionalDel(addinfo);
 	}
 }

@@ -13,11 +13,13 @@ import naruter.com.outsourcing.vo.MemberInfo;
 public class MeminfoDAOImpl implements MeminfoDAO{
 	@Autowired
 	private SqlSession ss;
-	MemberInfo m = new MemberInfo();
 	
 	@Override
 	public Integer loginSelect(MemberInfo memInfo) {
 		memInfo=ss.selectOne("SQL.MEMBERINFO.login",memInfo);
+		if(memInfo==null) {
+			memInfo.setMembernum(-1);
+		}
 		return memInfo.getMembernum();
 	}
 
