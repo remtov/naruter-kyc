@@ -7,10 +7,11 @@
 <mapper namespace="SQL.PROJECT">
 
 	<select id="selectProjectList" resultType="pr" parameterType="pr">
-		select * from projec order by pjnum
+		select * from projec
 	</select>
 	<select id="selectProject" resultType="pr" parameterType="pr">
-		select * from projec where pjnum=#{pjnum}
+		select * from projec
+		where pjnum = #{pjnum}
 	</select>
 	
 	<update id="updateProject" parameterType="pr">

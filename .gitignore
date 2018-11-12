@@ -2,3 +2,10 @@
 /target/
 .project
 .classpath
+/src/main/webapp/WEB-INF/views/site/vendor/
+/src/main/webapp/WEB-INF/views/site/scss/
+/src/main/webapp/WEB-INF/views/site/js/
+/src/main/webapp/WEB-INF/views/site/img/
+/src/main/webapp/WEB-INF/views/site/mail/
+/src/main/webapp/WEB-INF/views/site/main/
+/src/main/webapp/WEB-INF/views/site/css/
