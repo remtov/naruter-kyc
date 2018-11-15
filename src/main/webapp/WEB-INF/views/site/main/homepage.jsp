@@ -66,8 +66,8 @@
 		</div>
   
 		<div class="" style="float: right">
-			<button class="btn btn-outline-success" type="button">Login</button>
-			<button class="btn btn-outline-success my-2 my-sm-0" type="button">Sign
+			<button class="btn btn-outline-success" type="button" onclick="location.href='/site/all/signin'">Login</button>
+			<button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="location.href='/site/all/signup'">Sign
 				up</button>
 		</div>
 	</div>

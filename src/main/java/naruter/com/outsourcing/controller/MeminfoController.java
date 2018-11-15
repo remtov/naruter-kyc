@@ -24,8 +24,14 @@ public class MeminfoController {
 	@RequestMapping(value="/sign", method=RequestMethod.POST) //LOGIN
 	public Integer selectSignIn(@RequestBody MemberInfo memInfo,HttpSession session) {
 		//login
+		System.out.println("qk");
 		int suc = ss.loginGet(memInfo);
 		if(suc==1) {
+			if(session.getAttribute("id")!=null) {
+				session.removeAttribute("id");
+				session.setAttribute("id", memInfo.getMemberid());
+				return suc;
+			}
 			if(session.getAttribute("id")==null) {//세션에 id저장값이 널일 경우만
 				session.setAttribute("id", memInfo.getMemberid());
 				return suc;
@@ -38,7 +44,7 @@ public class MeminfoController {
 	@ResponseBody
 	@RequestMapping(value="/sign", method=RequestMethod.GET)//LOGOUT
 	public Integer selectSignIn(HttpSession session) {
-		//logout
+		
 		int cnt =-1;
 		if(session!=null) {
 			session.removeAttribute("id");
